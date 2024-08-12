@@ -1,0 +1,439 @@
+
+I2C_SLAVE_App2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000036  00800100  0000028a  0000031e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000028a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000000f  00800136  00800136  00000354  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000354  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000384  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000030  00000000  00000000  000003c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000074b  00000000  00000000  000003f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000066f  00000000  00000000  00000b3f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000342  00000000  00000000  000011ae  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000006c  00000000  00000000  000014f0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003d7  00000000  00000000  0000155c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000090  00000000  00000000  00001933  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000020  00000000  00000000  000019c3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__vector_24>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ea e8       	ldi	r30, 0x8A	; 138
+  7c:	f2 e0       	ldi	r31, 0x02	; 2
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a6 33       	cpi	r26, 0x36	; 54
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a6 e3       	ldi	r26, 0x36	; 54
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a5 34       	cpi	r26, 0x45	; 69
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 3c 01 	call	0x278	; 0x278 <main>
+  9e:	0c 94 43 01 	jmp	0x286	; 0x286 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <_Z8i2c_initv>:
+char message_buffer[MESSAGE_BUFFER_SIZE];
+uint8_t message_buffer_index = 0;
+
+void i2c_init(void) 
+{   
+    TWAR = (SLA << 1);  // Setare adresa slave
+  a6:	80 e1       	ldi	r24, 0x10	; 16
+  a8:	80 93 ba 00 	sts	0x00BA, r24	; 0x8000ba <__TEXT_REGION_LENGTH__+0x7f80ba>
+    TWCR = (1 << TWEN) | (1 << TWEA) | (1 << TWIE);  // Activare TWI, activare ACK, activare intrerupere
+  ac:	85 e4       	ldi	r24, 0x45	; 69
+  ae:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+  b2:	08 95       	ret
+
+000000b4 <__vector_24>:
+}
+
+ISR(TWI_vect) {
+  b4:	1f 92       	push	r1
+  b6:	0f 92       	push	r0
+  b8:	0f b6       	in	r0, 0x3f	; 63
+  ba:	0f 92       	push	r0
+  bc:	11 24       	eor	r1, r1
+  be:	8f 93       	push	r24
+  c0:	9f 93       	push	r25
+  c2:	af 93       	push	r26
+  c4:	bf 93       	push	r27
+  c6:	ef 93       	push	r30
+  c8:	ff 93       	push	r31
+	cli();
+  ca:	f8 94       	cli
+    switch (TWSR & 0xF8) 
+  cc:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7f80b9>
+  d0:	88 7f       	andi	r24, 0xF8	; 248
+  d2:	80 38       	cpi	r24, 0x80	; 128
+  d4:	99 f0       	breq	.+38     	; 0xfc <__vector_24+0x48>
+  d6:	18 f4       	brcc	.+6      	; 0xde <__vector_24+0x2a>
+  d8:	80 36       	cpi	r24, 0x60	; 96
+  da:	41 f0       	breq	.+16     	; 0xec <__vector_24+0x38>
+  dc:	be c0       	rjmp	.+380    	; 0x25a <__vector_24+0x1a6>
+  de:	80 3a       	cpi	r24, 0xA0	; 160
+  e0:	09 f4       	brne	.+2      	; 0xe4 <__vector_24+0x30>
+  e2:	b7 c0       	rjmp	.+366    	; 0x252 <__vector_24+0x19e>
+  e4:	88 3b       	cpi	r24, 0xB8	; 184
+  e6:	09 f4       	brne	.+2      	; 0xea <__vector_24+0x36>
+  e8:	9f c0       	rjmp	.+318    	; 0x228 <__vector_24+0x174>
+  ea:	b7 c0       	rjmp	.+366    	; 0x25a <__vector_24+0x1a6>
+    {
+        case TW_SR_SLA_ACK: // Adresã recunoscutã
+			TWDR = 0;
+  ec:	10 92 bb 00 	sts	0x00BB, r1	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+            TWCR = (1 << TWINT) | (1 << TWEA) | (1 << TWEN) | (1 << TWIE); // Trimitere ACK
+  f0:	85 ec       	ldi	r24, 0xC5	; 197
+  f2:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+            data_buffer_index = 0; 
+  f6:	10 92 41 01 	sts	0x0141, r1	; 0x800141 <data_buffer_index>
+            break;
+  fa:	b2 c0       	rjmp	.+356    	; 0x260 <__vector_24+0x1ac>
+			
+        case TW_SR_DATA_ACK: // Date primite
+        {
+			char received = TWDR;
+  fc:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+			
+            if (data_buffer_index < DATA_BUFFER_SIZE - 1) 
+ 100:	e0 91 41 01 	lds	r30, 0x0141	; 0x800141 <data_buffer_index>
+ 104:	e2 30       	cpi	r30, 0x02	; 2
+ 106:	40 f4       	brcc	.+16     	; 0x118 <__vector_24+0x64>
+			{
+                data_buffer[data_buffer_index++] = received; 
+ 108:	91 e0       	ldi	r25, 0x01	; 1
+ 10a:	9e 0f       	add	r25, r30
+ 10c:	90 93 41 01 	sts	0x0141, r25	; 0x800141 <data_buffer_index>
+ 110:	f0 e0       	ldi	r31, 0x00	; 0
+ 112:	ee 5b       	subi	r30, 0xBE	; 190
+ 114:	fe 4f       	sbci	r31, 0xFE	; 254
+ 116:	80 83       	st	Z, r24
+            }
+
+            if (data_buffer_index == DATA_BUFFER_SIZE - 1) 
+ 118:	80 91 41 01 	lds	r24, 0x0141	; 0x800141 <data_buffer_index>
+ 11c:	82 30       	cpi	r24, 0x02	; 2
+ 11e:	09 f0       	breq	.+2      	; 0x122 <__vector_24+0x6e>
+ 120:	7f c0       	rjmp	.+254    	; 0x220 <__vector_24+0x16c>
+			{
+                switch (data_buffer[0]) 
+ 122:	80 91 42 01 	lds	r24, 0x0142	; 0x800142 <data_buffer>
+ 126:	82 37       	cpi	r24, 0x72	; 114
+ 128:	a9 f1       	breq	.+106    	; 0x194 <__vector_24+0xe0>
+ 12a:	83 37       	cpi	r24, 0x73	; 115
+ 12c:	09 f0       	breq	.+2      	; 0x130 <__vector_24+0x7c>
+ 12e:	6b c0       	rjmp	.+214    	; 0x206 <__vector_24+0x152>
+				{
+                    case 's': 
+                        switch (data_buffer[1]) {
+ 130:	80 91 43 01 	lds	r24, 0x0143	; 0x800143 <data_buffer+0x1>
+ 134:	82 33       	cpi	r24, 0x32	; 50
+ 136:	51 f0       	breq	.+20     	; 0x14c <__vector_24+0x98>
+ 138:	83 33       	cpi	r24, 0x33	; 51
+ 13a:	a9 f0       	breq	.+42     	; 0x166 <__vector_24+0xb2>
+ 13c:	81 33       	cpi	r24, 0x31	; 49
+ 13e:	01 f5       	brne	.+64     	; 0x180 <__vector_24+0xcc>
+                            case '1':
+                                PORTB |= (1 << 0);  
+ 140:	85 b1       	in	r24, 0x05	; 5
+ 142:	81 60       	ori	r24, 0x01	; 1
+ 144:	85 b9       	out	0x05, r24	; 5
+							    strcpy(message_buffer, "");
+ 146:	10 92 37 01 	sts	0x0137, r1	; 0x800137 <message_buffer>
+                                break;
+ 14a:	66 c0       	rjmp	.+204    	; 0x218 <__vector_24+0x164>
+                            case '2':
+                                PORTB |= (1 << 1);  
+ 14c:	85 b1       	in	r24, 0x05	; 5
+ 14e:	82 60       	ori	r24, 0x02	; 2
+ 150:	85 b9       	out	0x05, r24	; 5
+								strcpy(message_buffer, "LED-2-ON"); 
+ 152:	89 e0       	ldi	r24, 0x09	; 9
+ 154:	e0 e0       	ldi	r30, 0x00	; 0
+ 156:	f1 e0       	ldi	r31, 0x01	; 1
+ 158:	a7 e3       	ldi	r26, 0x37	; 55
+ 15a:	b1 e0       	ldi	r27, 0x01	; 1
+ 15c:	01 90       	ld	r0, Z+
+ 15e:	0d 92       	st	X+, r0
+ 160:	8a 95       	dec	r24
+ 162:	e1 f7       	brne	.-8      	; 0x15c <__vector_24+0xa8>
+                                break;
+ 164:	59 c0       	rjmp	.+178    	; 0x218 <__vector_24+0x164>
+                            case '3':
+                                PORTB |= (1 << 2);  
+ 166:	85 b1       	in	r24, 0x05	; 5
+ 168:	84 60       	ori	r24, 0x04	; 4
+ 16a:	85 b9       	out	0x05, r24	; 5
+								strcpy(message_buffer, "LED-3-ON"); 
+ 16c:	89 e0       	ldi	r24, 0x09	; 9
+ 16e:	e9 e0       	ldi	r30, 0x09	; 9
+ 170:	f1 e0       	ldi	r31, 0x01	; 1
+ 172:	a7 e3       	ldi	r26, 0x37	; 55
+ 174:	b1 e0       	ldi	r27, 0x01	; 1
+ 176:	01 90       	ld	r0, Z+
+ 178:	0d 92       	st	X+, r0
+ 17a:	8a 95       	dec	r24
+ 17c:	e1 f7       	brne	.-8      	; 0x176 <__vector_24+0xc2>
+                                break;
+ 17e:	4c c0       	rjmp	.+152    	; 0x218 <__vector_24+0x164>
+                            default:
+								strcpy(message_buffer, "ERROR");
+ 180:	86 e0       	ldi	r24, 0x06	; 6
+ 182:	e2 e1       	ldi	r30, 0x12	; 18
+ 184:	f1 e0       	ldi	r31, 0x01	; 1
+ 186:	a7 e3       	ldi	r26, 0x37	; 55
+ 188:	b1 e0       	ldi	r27, 0x01	; 1
+ 18a:	01 90       	ld	r0, Z+
+ 18c:	0d 92       	st	X+, r0
+ 18e:	8a 95       	dec	r24
+ 190:	e1 f7       	brne	.-8      	; 0x18a <__vector_24+0xd6>
+                                break;
+ 192:	42 c0       	rjmp	.+132    	; 0x218 <__vector_24+0x164>
+                        }
+                        break;
+                    case 'r': 
+                        switch (data_buffer[1]) {
+ 194:	80 91 43 01 	lds	r24, 0x0143	; 0x800143 <data_buffer+0x1>
+ 198:	82 33       	cpi	r24, 0x32	; 50
+ 19a:	89 f0       	breq	.+34     	; 0x1be <__vector_24+0x10a>
+ 19c:	83 33       	cpi	r24, 0x33	; 51
+ 19e:	e1 f0       	breq	.+56     	; 0x1d8 <__vector_24+0x124>
+ 1a0:	81 33       	cpi	r24, 0x31	; 49
+ 1a2:	39 f5       	brne	.+78     	; 0x1f2 <__vector_24+0x13e>
+                            case '1':
+                                PORTB &= ~(1 << 0);  
+ 1a4:	85 b1       	in	r24, 0x05	; 5
+ 1a6:	8e 7f       	andi	r24, 0xFE	; 254
+ 1a8:	85 b9       	out	0x05, r24	; 5
+								strcpy(message_buffer, "LED-1-OFF");
+ 1aa:	8a e0       	ldi	r24, 0x0A	; 10
+ 1ac:	e8 e1       	ldi	r30, 0x18	; 24
+ 1ae:	f1 e0       	ldi	r31, 0x01	; 1
+ 1b0:	a7 e3       	ldi	r26, 0x37	; 55
+ 1b2:	b1 e0       	ldi	r27, 0x01	; 1
+ 1b4:	01 90       	ld	r0, Z+
+ 1b6:	0d 92       	st	X+, r0
+ 1b8:	8a 95       	dec	r24
+ 1ba:	e1 f7       	brne	.-8      	; 0x1b4 <__vector_24+0x100>
+                                break;
+ 1bc:	2d c0       	rjmp	.+90     	; 0x218 <__vector_24+0x164>
+                            case '2':
+                                PORTB &= ~(1 << 1);  
+ 1be:	85 b1       	in	r24, 0x05	; 5
+ 1c0:	8d 7f       	andi	r24, 0xFD	; 253
+ 1c2:	85 b9       	out	0x05, r24	; 5
+								strcpy(message_buffer, "LED-2-OFF"); 
+ 1c4:	8a e0       	ldi	r24, 0x0A	; 10
+ 1c6:	e2 e2       	ldi	r30, 0x22	; 34
+ 1c8:	f1 e0       	ldi	r31, 0x01	; 1
+ 1ca:	a7 e3       	ldi	r26, 0x37	; 55
+ 1cc:	b1 e0       	ldi	r27, 0x01	; 1
+ 1ce:	01 90       	ld	r0, Z+
+ 1d0:	0d 92       	st	X+, r0
+ 1d2:	8a 95       	dec	r24
+ 1d4:	e1 f7       	brne	.-8      	; 0x1ce <__vector_24+0x11a>
+                                break;
+ 1d6:	20 c0       	rjmp	.+64     	; 0x218 <__vector_24+0x164>
+                            case '3':
+                                PORTB &= ~(1 << 2);  
+ 1d8:	85 b1       	in	r24, 0x05	; 5
+ 1da:	8b 7f       	andi	r24, 0xFB	; 251
+ 1dc:	85 b9       	out	0x05, r24	; 5
+								strcpy(message_buffer, "LED-3-OFF"); 
+ 1de:	8a e0       	ldi	r24, 0x0A	; 10
+ 1e0:	ec e2       	ldi	r30, 0x2C	; 44
+ 1e2:	f1 e0       	ldi	r31, 0x01	; 1
+ 1e4:	a7 e3       	ldi	r26, 0x37	; 55
+ 1e6:	b1 e0       	ldi	r27, 0x01	; 1
+ 1e8:	01 90       	ld	r0, Z+
+ 1ea:	0d 92       	st	X+, r0
+ 1ec:	8a 95       	dec	r24
+ 1ee:	e1 f7       	brne	.-8      	; 0x1e8 <__vector_24+0x134>
+                                break;
+ 1f0:	13 c0       	rjmp	.+38     	; 0x218 <__vector_24+0x164>
+                            default:
+                                strcpy(message_buffer, "ERROR");
+ 1f2:	86 e0       	ldi	r24, 0x06	; 6
+ 1f4:	e2 e1       	ldi	r30, 0x12	; 18
+ 1f6:	f1 e0       	ldi	r31, 0x01	; 1
+ 1f8:	a7 e3       	ldi	r26, 0x37	; 55
+ 1fa:	b1 e0       	ldi	r27, 0x01	; 1
+ 1fc:	01 90       	ld	r0, Z+
+ 1fe:	0d 92       	st	X+, r0
+ 200:	8a 95       	dec	r24
+ 202:	e1 f7       	brne	.-8      	; 0x1fc <__vector_24+0x148>
+                                break;
+ 204:	09 c0       	rjmp	.+18     	; 0x218 <__vector_24+0x164>
+                        }
+                        break;
+                    default:
+                        strcpy(message_buffer, "ERROR");
+ 206:	86 e0       	ldi	r24, 0x06	; 6
+ 208:	e2 e1       	ldi	r30, 0x12	; 18
+ 20a:	f1 e0       	ldi	r31, 0x01	; 1
+ 20c:	a7 e3       	ldi	r26, 0x37	; 55
+ 20e:	b1 e0       	ldi	r27, 0x01	; 1
+ 210:	01 90       	ld	r0, Z+
+ 212:	0d 92       	st	X+, r0
+ 214:	8a 95       	dec	r24
+ 216:	e1 f7       	brne	.-8      	; 0x210 <__vector_24+0x15c>
+                        break;
+                }
+                data_buffer_index = 0; 
+ 218:	10 92 41 01 	sts	0x0141, r1	; 0x800141 <data_buffer_index>
+				message_buffer_index = 0;
+ 21c:	10 92 36 01 	sts	0x0136, r1	; 0x800136 <__data_end>
+
+            }
+
+            TWCR = (1 << TWINT) | (1 << TWEA) | (1 << TWEN) | (1 << TWIE); // Trimitere ACK
+ 220:	85 ec       	ldi	r24, 0xC5	; 197
+ 222:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+        }
+        break;
+ 226:	1c c0       	rjmp	.+56     	; 0x260 <__vector_24+0x1ac>
+		
+        case TW_ST_DATA_ACK:  // Master solicitã date
+		
+            if (message_buffer_index < MESSAGE_BUFFER_SIZE) 
+ 228:	e0 91 36 01 	lds	r30, 0x0136	; 0x800136 <__data_end>
+ 22c:	ea 30       	cpi	r30, 0x0A	; 10
+ 22e:	58 f4       	brcc	.+22     	; 0x246 <__vector_24+0x192>
+			{
+                TWDR = message_buffer[message_buffer_index++];  
+ 230:	81 e0       	ldi	r24, 0x01	; 1
+ 232:	8e 0f       	add	r24, r30
+ 234:	80 93 36 01 	sts	0x0136, r24	; 0x800136 <__data_end>
+ 238:	f0 e0       	ldi	r31, 0x00	; 0
+ 23a:	e9 5c       	subi	r30, 0xC9	; 201
+ 23c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 23e:	80 81       	ld	r24, Z
+ 240:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+ 244:	02 c0       	rjmp	.+4      	; 0x24a <__vector_24+0x196>
+            } else 
+			{
+                TWDR = '\0';  
+ 246:	10 92 bb 00 	sts	0x00BB, r1	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+            }
+            TWCR = (1 << TWINT) | (1 << TWEA) | (1 << TWEN) | (1 << TWIE);  // Trimitere ACK
+ 24a:	85 ec       	ldi	r24, 0xC5	; 197
+ 24c:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+            break;
+ 250:	07 c0       	rjmp	.+14     	; 0x260 <__vector_24+0x1ac>
+
+        case TW_SR_STOP: // Stop sau Repeated Start
+            TWCR = (1 << TWINT) | (1 << TWEA) | (1 << TWEN) | (1 << TWIE);
+ 252:	85 ec       	ldi	r24, 0xC5	; 197
+ 254:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+            break;
+ 258:	03 c0       	rjmp	.+6      	; 0x260 <__vector_24+0x1ac>
+			
+        default:
+            TWCR = (1 << TWINT) | (1 << TWEA) | (1 << TWEN) | (1 << TWIE);  
+ 25a:	85 ec       	ldi	r24, 0xC5	; 197
+ 25c:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+    }
+	sei();
+ 260:	78 94       	sei
+}
+ 262:	ff 91       	pop	r31
+ 264:	ef 91       	pop	r30
+ 266:	bf 91       	pop	r27
+ 268:	af 91       	pop	r26
+ 26a:	9f 91       	pop	r25
+ 26c:	8f 91       	pop	r24
+ 26e:	0f 90       	pop	r0
+ 270:	0f be       	out	0x3f, r0	; 63
+ 272:	0f 90       	pop	r0
+ 274:	1f 90       	pop	r1
+ 276:	18 95       	reti
+
+00000278 <main>:
+
+int main(void)
+{
+    i2c_init();
+ 278:	0e 94 53 00 	call	0xa6	; 0xa6 <_Z8i2c_initv>
+    sei();  
+ 27c:	78 94       	sei
+    DDRB = 0xFF;  
+ 27e:	8f ef       	ldi	r24, 0xFF	; 255
+ 280:	84 b9       	out	0x04, r24	; 4
+    PORTB = 0x00;  
+ 282:	15 b8       	out	0x05, r1	; 5
+ 284:	ff cf       	rjmp	.-2      	; 0x284 <main+0xc>
+
+00000286 <_exit>:
+ 286:	f8 94       	cli
+
+00000288 <__stop_program>:
+ 288:	ff cf       	rjmp	.-2      	; 0x288 <__stop_program>
